@@ -1,0 +1,179 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,700,900);
+body {
+  background-color: #F7F8F9;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 14px;
+}
+@media screen and (min-width: 348px) {
+  :root {
+    font-size: 16px;
+  }
+}
+
+.card {
+  background-color: #FFFFFF;
+  box-shadow: 0.125rem 0.25rem 1rem rgba(0, 59, 92, 0.2);
+  margin-bottom: 1.5rem;
+  z-index: 1;
+  min-width: 300px;
+  max-width: 362px;
+  font-family: "Roboto";
+  border-radius: 0.25rem;
+  overflow: hidden;
+}
+.card__container {
+  display: flex;
+  flex-direction: column;
+}
+.card__icon, .card__heading, .card__dates, .card__content, .card__actions {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  position: relative;
+}
+.card__icon {
+  padding-top: 1.5rem;
+  text-align: center;
+}
+.card__heading {
+  font-weight: 700;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  color: #003B5C;
+  padding-top: 1rem;
+}
+.card__content {
+  color: #444444;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 1rem;
+}
+.card__image {
+  display: flex;
+  flex-direction: column-reverse;
+  position: relative;
+  height: 100%;
+}
+.card__image:after {
+  content: "";
+  position: absolute;
+  height: 50%;
+  width: 100%;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 48%);
+}
+.card__dates {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  z-index: 1;
+  padding-bottom: 0.75rem;
+}
+.card__actions, .card__dates {
+  display: flex;
+  justify-content: space-between;
+  margin-top: auto;
+}
+.card__actions {
+  padding-bottom: 1.5rem;
+}
+.card__actions a:first-of-type {
+  margin-right: 1rem;
+}
+.card__actions.-attached {
+  justify-content: stretch;
+  padding-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+.card__actions.-attached .card__action {
+  flex-grow: 1;
+}
+.card__action {
+  flex-basis: max(9rem, 50%);
+}
+.card.-clickable {
+  cursor: pointer;
+}
+
+.date {
+  display: flex;
+  align-items: center;
+  color: white;
+  flex-grow: 1;
+}
+.date__icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  min-width: 2.5rem;
+  min-height: 2.5rem;
+  border-radius: 50%;
+  margin-right: 0.7em;
+}
+.date__details {
+  display: flex;
+  flex-direction: column;
+}
+.date__heading {
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1rem;
+}
+.date__description {
+  font-size: 0.5rem;
+  font-weight: 400;
+  line-height: 0.75rem;
+}
+
+svg {
+  min-width: 1rem;
+  min-height: 1rem;
+}
+
+.button {
+  border: 0.0625rem solid #00A9E0;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  font-family: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  border-radius: 0.25rem;
+  font-weight: 800;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  overflow: hidden;
+  white-space: nowrap;
+  transition: background-color 0.25s, color 0.25s;
+  box-sizing: border-box;
+}
+.button.-primary {
+  color: #00A9E0;
+}
+.button.-primary:hover, .button.-primary:focus {
+  background-color: #00A9E0;
+  color: #FFFFFF;
+}
+.button.-secondary {
+  color: #373534;
+  border: 0.0625rem solid #373534;
+}
+.button.-secondary:hover, .button.-secondary:focus {
+  background-color: #444444;
+  color: #FFFFFF;
+}
+.button[disabled] {
+  pointer-events: none;
+}
+.button.-disabled {
+  color: #fff;
+  pointer-events: none;
+}

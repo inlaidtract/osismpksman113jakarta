@@ -1,0 +1,105 @@
+@media only screen and (min-width:320px) {
+    .gambar-mengecil {
+        width: 320px;
+        right: 285px;
+        position: relative;
+        z-index: -1;
+        margin-top: 20px;
+    }.block-ves{
+        padding-top:40px;
+    }.block-img {
+        margin-top: -20px;
+        bottom: 40px;
+        z-index: 99999999;
+    }
+}
+
+    @media only screen and (min-width:375px) {
+        .gambar-mengecil {
+            width: 370px;
+            right: 265px;
+            position: relative;
+            z-index: -1;
+            margin-top: 25px;
+        }
+
+    .block-img {
+        margin-top: -15px;
+        bottom: 40px;
+        z-index: 99999999;
+    }
+
+    
+    .block-ves{
+        padding-top:50px;
+    }
+}
+
+@media only screen and (min-width:425px) {
+    .gambar-mengecil {
+        width: 400px;
+        right: 277px;
+        position: relative;
+        z-index: -1;
+        margin-top: 30px;
+    }
+
+.block-img {
+    margin-top: -20px;
+    bottom: 40px;
+    z-index: 99999999;
+}
+
+
+.block-ves{
+    padding-top:40px;
+}
+}
+
+@media only screen and (min-width:768px) {
+    .gambar-mengecil {
+        width: 450px;
+        right: 240px;
+        position: relative;
+        z-index: -1;
+        margin-top: -280px;
+    }
+
+    .block-img {
+        margin-top: -15px;
+        bottom: 40px;
+        z-index: 99999999;
+    }
+
+    
+    .block-ves{
+        padding-top:50px;
+    }
+}
+
+@media only screen and (min-width:1024px) {
+    .gambar-mengecil {
+        width: 739px;
+        right: -35px;
+        position: relative;
+        z-index: -1;
+        margin-top: 150px;
+    }
+
+    .block-img {
+        margin-top: -15px;
+        bottom: 40px;
+        z-index: 99999999;
+    }
+
+    
+    .block-ves{
+        padding-top:50px;
+    }
+}
+
+
+
+
+
+

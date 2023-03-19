@@ -1,0 +1,259 @@
+<link rel="stylesheet" href="chaon.css">
+
+<section id="lil">
+    <div id="chano">
+        <svg id="from-79th" viewBox="0 0 56 56"></svg>
+    </div>
+</section>
+
+<div class="words"></div>
+
+<script>
+
+    var app = new App();
+
+    function App() {
+        var A = {};
+
+        init();
+
+        return A;
+
+        /**************
+        initialization
+        **************/
+
+        function init() {
+            setupData();
+            var setup_audios = setupAudios();
+            setup_audios.then(function () {
+                setupEvents();
+            });
+            var setup_images = setupImages();
+            setup_images.then(function () {
+                setupFrames();
+                oscillateFrames();
+            });
+        }
+
+        /**************
+        setters
+        **************/
+
+        function setupData() {
+            A.datas = {};
+            A.audios = {};
+            A.audio = 1;
+            A.audio_playing = false;
+            A.img_di = 56;
+            A.lil = document.getElementById("lil");
+            A.chano = document.getElementById("chano");
+            A.svg = document.getElementById("from-79th");
+            var di = A.img_di;
+            A.svg.height = di;
+            A.svg.width = di;
+        }
+
+        function setupEvents() {
+            A.chano.addEventListener("mousedown", playAudio);
+            document.addEventListener("mousemove", chanoTransform);
+            document.addEventListener("mouseleave", pauseAudio);
+            document.addEventListener("mouseup", pauseAudio);
+            A.chano.addEventListener("touchstart", pauseAudio);
+        }
+
+        // setup images wrapped in a promise
+        function setupImages() {
+            return new Promise(function (resolve, reject) {
+                var count = 4,
+                    di = A.img_di,
+                    loaded = 0;
+                for (var i = 1; i <= count; i++) {
+                    var img = new Image();
+                    img.crossOrigin = "Anonymous";
+                    var url = "https://s3-us-west-2.amazonaws.com/s.cdpn.io/111863/chano-" + i + ".png";
+                    img.src = url;
+                    img.setAttribute("data-order", i);
+
+                    img.onload = function (e) {
+                        var image = e.target,
+                            cvs = document.createElement("canvas"),
+                            ctx = cvs.getContext("2d");
+                        cvs.height = di; cvs.width = di;
+                        cvs.style.height = di + "px"; cvs.style.width = di + "px";
+                        ctx.drawImage(image, 0, 0, di, di);
+
+                        var img_data = ctx.getImageData(0, 0, di, di);
+                        A.datas["id-" + image.getAttribute("data-order")] = img_data;
+                        loaded++;
+                        if (loaded === count) {
+                            resolve("Images Loaded!");
+                        }
+                    }
+                }
+            });
+        }
+
+        // setup audios
+        function setupAudios() {
+            var lyrics = [
+                "Neh neh neh neh neeeeeeeeh...neh neh neh neh neeeeeh.",
+                "‘member sittin’ in class the first time listening to Dilla. Everything’s good.",
+                "Ahh! Ahh! Ahh! Ahh! Ahh! Ahh! Ahh! Ahh! Ahh! Ahh! Ahh! Ahh! Ahh!"
+            ];
+            return new Promise(function (resolve, reject) {
+                var count = 3,
+                    loaded = 0;
+                // do a thing, possibly async, then…
+                for (var i = 1; i <= count; i++) {
+                    var url = "https://s3-us-west-2.amazonaws.com/s.cdpn.io/111863/chano-0" + i + ".mp3";
+                    var audio = new Audio(url);
+                    var words = document.querySelector(".words");
+                    var el = document.createElement("div");
+                    el.className = "words-" + i;
+                    words.appendChild(el);
+                    for (var p = 0; p < 20; p++) {
+                        var paragraph = document.createElement("p");
+                        paragraph.innerHTML = lyrics[i - 1];
+                        el.appendChild(paragraph);
+                    }
+                    A.audios["id-" + i] = audio;
+                    audio.setAttribute("preload", "auto");
+                    audio.setAttribute("controls", "controls");
+                    audio.setAttribute("loop", true);
+                    audio.setAttribute("data-order", i);
+                    // document.body.appendChild(audio);
+                    audio.addEventListener("canplaythrough", function (e) {
+                        loaded++;
+                        if (loaded === count) {
+                            resolve("Audios Loaded!");
+                        }
+                    });
+                }
+            });
+        }
+
+
+        /**************
+        events
+        **************/
+
+        function chanoTransform(e) {
+            if (!A.audio_playing) return;
+            var halfw = window.innerWidth / 2,
+                halfh = window.innerHeight / 2,
+                x = e.clientX,
+                y = e.clientY,
+                posx = x > halfw,
+                posy = y > halfh,
+                ratx = posx ? (x - halfw) / halfw : -1 - (x / -halfw),
+                raty = posy ? (y - halfh) / halfh : -1 - (y / -halfh);
+            var max_deg = 15,
+                max_move = 30;
+            var transform = [
+                "rotateX(" + (max_deg * -raty) + "deg)",
+                "rotateY(" + (max_deg * -ratx) + "deg)",
+                "skewX(" + (max_deg * raty) + "deg)",
+                "skewY(" + (max_deg * ratx) + "deg)",
+                "translateX(" + (max_move * -ratx) + "px)",
+                "translateY(" + (max_move * -raty) + "px)"
+            ].join(" ");
+            A.chano.style.webkitTransform = transform;
+            A.chano.style.transform = transform;
+        }
+
+        function killTransform() {
+            A.chano.style.webkitTransform = "";
+            A.chano.style.transform = "";
+        }
+
+        function playAudio() {
+            A.audio_playing = true;
+            document.body.className = "playing audio-" + A.audio;
+            A.audios["id-" + A.audio].play();
+        }
+
+        function pauseAudio() {
+            killTransform();
+            var audio = A.audios["id-" + A.audio];
+            audio.pause();
+            audio.currentTime = 0;
+            if (A.audio_playing) {
+                A.audio++;
+                document.body.className = "";
+                A.audio_playing = false;
+                if (A.audio > 3) A.audio = 1;
+            }
+        }
+
+        /**************
+        drawers
+        **************/
+
+        function oscillateFrames() {
+            var current_image = 1;
+            var timer = 0;
+            var down = true;
+            requestAnimationFrame(loop);
+            function loop() {
+                timer++;
+                if (timer % 2 === 0) {
+                    drawFrame(current_image);
+                    if (down) {
+                        if (current_image === 1) {
+                            current_image++;
+                            down = false;
+                        } else {
+                            current_image--;
+                        }
+                    } else {
+                        if (current_image === 4) {
+                            current_image--;
+                            down = true;
+                        } else {
+                            current_image++;
+                        }
+                    }
+                }
+                requestAnimationFrame(loop);
+            }
+        }
+
+        // switch classname and let css handle the animation for us
+        function drawFrame(which) {
+            A.lil.setAttribute("class", "frame-" + which);
+        }
+
+        // draw all the svg elements
+        function setupFrames() {
+            var xmlns = "http://www.w3.org/2000/svg";
+
+            for (var f in A.datas) {
+                var set = A.datas[f].data;
+                var group = document.createElementNS(xmlns, "g");
+                group.setAttributeNS(null, "class", f);
+                A.svg.appendChild(group);
+                for (var i = 0; i < (set.length / 4); i++) {
+                    var row_length = A.img_di;
+                    var x = (i % A.img_di);
+                    var y = Math.floor(i / A.img_di);
+                    var rel_i = i * 4;
+                    var r = set[rel_i], g = set[rel_i + 1], b = set[rel_i + 2], a = set[rel_i + 3];
+                    if (r + g + b + a !== 0) {
+                        var fill = "rgb(" + [r, g, b].join(",") + ")";
+                        var rect = document.createElementNS(xmlns, "rect");
+                        rect.setAttributeNS(null, "x", x);
+                        rect.setAttributeNS(null, "y", y);
+                        rect.setAttributeNS(null, "width", 1);
+                        rect.setAttributeNS(null, "height", 1);
+                        rect.setAttributeNS(null, "fill", fill);
+                        group.appendChild(rect);
+                    }
+                }
+            }
+        }
+
+    }
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>

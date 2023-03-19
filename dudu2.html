@@ -1,0 +1,331 @@
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        background-color: #eee;
+        background-image: url(https://cdn.pixabay.com/photo/2018/06/15/11/16/hogwarts-3476786_1280.png);
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: 0vw 2vw;
+        z-index: -1;
+        font-family: "Bellefair", serif;
+        letter-spacing: 1px;
+        /*min-width: 50%;*/
+        /*overflow-x: hidden;*/
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+
+    .header-box {
+        float: left;
+        width: 50%;
+        /*border: 2px solid red;*/
+    }
+
+    .header-box div {
+        text-align: center;
+        word-spacing: 0.5em;
+        background-color: rgba(75, 76, 116, 0.5);
+        background-image: linear-gradient(to right,
+                rgba(255, 255, 255, 0.3),
+                rgba(75, 76, 116, 0.3));
+        border-radius: 25px;
+        box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+        width: 20em;
+        height: auto;
+        position: fixed;
+        top: 10em;
+        left: 8vw;
+    }
+
+    .form-box {
+        float: right;
+        width: 50%;
+        padding: 20px;
+        padding-top: 4em;
+        /*border: 2px solid blue;*/
+        height: auto;
+    }
+
+    #title {
+        font-family: "Eczar", serif;
+        margin-bottom: 5px;
+        margin-top: 0;
+        line-height: 1.125em;
+    }
+
+    form {
+        border: 2px solid #4b0082;
+        border-radius: 3px 40px;
+        padding: 20px;
+        background-color: rgba(248, 248, 255, 0.8);
+        background-image: linear-gradient(rgba(248, 248, 255, 0.73),
+                rgba(245, 245, 245, 1));
+        max-width: 500px;
+        width: 100%;
+        box-shadow: 1px 1px 6px 0 rgba(0, 0, 0, 0.5);
+    }
+
+    #motto {
+        font-family: "Italianno", cursive;
+        margin-top: 0px;
+        font-size: 1.2em;
+        font-weight: bold;
+    }
+
+    #description {
+        font-family: "Playfair Display", serif;
+        text-align: left;
+        margin-top: 0;
+        padding-left: 0;
+        font-size: 1.2em;
+    }
+
+    .form-label {
+        width: 100%;
+        margin-top: 1em;
+        display: inline-block;
+    }
+
+    .form-label:first-child {
+        margin-top: 0px;
+    }
+
+    #date-label {
+        display: inline-block;
+        width: 35%;
+        margin: 30px 0px;
+    }
+
+    #number-label {
+        display: inline-block;
+        width: 35%;
+        margin: 30px 0px 0px;
+    }
+
+    fieldset {
+        width: 100%;
+        margin-top: 3em;
+        margin-bottom: 1em;
+        border-color: #4b0082;
+        border-radius: 4px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    select,
+    textarea {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 4px 0;
+        display: inline-block;
+        border: 1px solid #4b0082;
+        border-radius: 8px;
+        box-sizing: border-box;
+    }
+
+    input[type="date"],
+    input[type="number"] {
+        width: 37%;
+        border: 1px solid #4b0082;
+        border-radius: 8px;
+        padding: 8px 2px;
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    select:focus,
+    input[type="number"]:focus {
+        outline: none;
+        border-radius: 14px;
+        border-width: 2px;
+    }
+
+    textarea {
+        height: 100px;
+        resize: none;
+    }
+
+    textarea:focus {
+        outline: none;
+        border-radius: 8px;
+        border-width: 2px;
+    }
+
+    input[type="submit"] {
+        width: 100%;
+        background-color: #483d8b;
+        color: white;
+        font-size: 1em;
+        letter-spacing: 0.08em;
+        font-weight: 500;
+        padding: 1.1em;
+        margin: 10px 0 2px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #191970;
+    }
+
+    label {
+        display: block;
+        margin: 10px 0;
+    }
+
+    fieldset label:hover {
+        /*background-color: lightblue;*/
+        background-image: linear-gradient(to right,
+                rgba(72, 61, 139, 0.3),
+                rgba(245, 245, 245, 0.1));
+        width: 80%;
+        border-radius: 5px;
+    }
+
+    option {
+        background-color: #e6e6fa;
+    }
+
+    @media only screen and (max-width: 900px) {
+        .header-box {
+            float: none;
+            width: 100%;
+            margin: 1.5em auto 0;
+            padding: 0 100px;
+        }
+
+        .header-box img {
+            width: 30%;
+        }
+
+        .header-box div {
+            position: absolute;
+            top: 18%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            margin-bottom: 0;
+        }
+
+        #title {
+            font-size: 0.9em;
+        }
+
+        #motto {
+            font-size: 0.85em;
+            text-shadow: none;
+        }
+
+        .form-box {
+            float: none;
+            display: block;
+            width: 90%;
+            margin: 0px;
+            padding: auto;
+        }
+
+        form {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -4%);
+        }
+    }
+</style>
+
+<header class="header-box">
+    <div>
+        <img id="logo"
+            src="https://www.sman113jakarta.sch.id/images/20103286.jpg"
+            alt="Hogwarts logo" width="120">
+        <h1 id="title">Dudu is a program to convey your message as anonym</h1>
+        <p id="motto">Sent it and get it back</p>
+    </div>
+</header>
+
+<section class="form-box">
+    <form id="survey-form">
+        <p id="description">Student application form</p>
+        <label class="form-label" id="name-label" for="name">Wizard Name</label>
+        <input type="text" id="name" name="firstname" placeholder="Your name.." required>
+        <label class="form-label" for="lname">Wizard Last Name</label>
+        <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+
+        <label class="form-label" id="email-label" for="email"> Owl Post</label>
+        <input type="email" id="email" name="owlpost" placeholder="Your owl post.." required>
+
+        <label id="date-label" for="birthday">Birthday :</label>
+        <input type="date" id="birthday" name="birthday" max="2009-12-31"><br>
+
+        <label id="number-label" for="number">Year (1 to 7):</label>
+        <input type="number" id="number" name="year" min="1" max="7" placeholder="Enter year.." required>
+
+        <fieldset>
+            <legend>Choose Your Wand Core</legend>
+
+            <label for="dragon"><input type="radio" id="dragon" name="wand" value="dragon">Dragon Heatstring</label>
+            <label for="phoenix"><input type="radio" id="phoenix" name="wand" value="phoenix">Phoenix feather</label>
+            <label for="thestral"><input type="radio" id="thestral" name="wand" value="thestral">Thestral tail
+                hair</label>
+            <label for="unicorn"><input type="radio" id="unicorn" name="wand" value="unicorn">Unicorn tail hair</label>
+            <label for="veela"><input type="radio" id="veela" name="wand" value="veela">Veela hair</label>
+
+        </fieldset>
+
+        <fieldset>
+            <legend>Choose Your Preferred House</legend>
+
+            <label for="Gryffindor"><input type="radio" id="Gryffindor" name="house"
+                    value="Gryffindor">Gryffindor</label>
+            <label for="Ravenclaw"><input type="radio" id="Ravenclaw" name="house" value="Ravenclaw">Ravenclaw</label>
+            <label for="Slytherin"><input type="radio" id="Slytherin" name="house" value="Slytherin">Slytherin</label>
+            <label for="Hufflepuff"><input type="radio" id="Hufflepuff" name="house"
+                    value="Hufflepuff">Hufflepuff</label>
+
+        </fieldset>
+
+        <fieldset>
+            <legend>Select Your Favourite Subjects</legend>
+
+            <label for="transfiguration"><input type="checkbox" id="transfiguration" name="subject"
+                    value="transfiguration">Transfiguration</label>
+            <label for="charms"><input type="checkbox" id="charms" name="subject" value="charms">Charms</label>
+            <label for="potions"><input type="checkbox" id="potions" name="subject" value="potions">Potions</label>
+            <label for="history"><input type="checkbox" id="history" name="subject" value="history">History of
+                Magic</label>
+            <label for="defence"><input type="checkbox" id="defence" name="subject" value="defence">Defence Against the
+                Dark Arts</label>
+            <label for="astronomy"><input type="checkbox" id="astronomy" name="subject"
+                    value="astronomy">Astronomy</label>
+            <label for="herbology"><input type="checkbox" id="herbology" name="subject"
+                    value="herbology">Herbology</label>
+            <label for="flying"><input type="checkbox" id="flying" name="subject" value="flying">Flying (on
+                broomstick)</label>
+        </fieldset>
+
+        <label class="form-label" for="drodown">Choose your desired broomstick</label>
+        <select id="dropdown" name="broomsticks" required>
+            <option disabled selected value>Choose Here</option>
+            <option value="silverarrow">Silver Arrow</option>
+            <option value="shootingstar">Shooting Star</option>
+            <option value="cleansweep">Cleansweep</option>
+            <option value="Comettwoninety">Comet Two Ninety</option>
+            <option value="nimbus2000">Nimbus 2000</option>
+            <option value="nimbus2001">Nimbus 2001</option>
+            <option value="firebolt">Firebolt</option>
+            <option value="thunderboltVII">Thunderbolt VII</option>
+        </select>
+
+        <label class="form-label" for="comments">Any comments or suggestions that you want to share with Headmistress
+            Professor McGonagall?</label>
+        <textarea id="comments" name="comment" placeholder="Enter your comment here..."></textarea>
+
+        <input type="submit" id="submit" value="Submit">
+    </form>
+</section>
