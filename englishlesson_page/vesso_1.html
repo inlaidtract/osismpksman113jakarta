@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="../assets/css/slick.css">
     <link rel="stylesheet" href="../assets/css/nice-select.css">
     <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
 </head>
 
 <body>
@@ -141,44 +142,119 @@
             <a class="btn btn-primary btn-md mb-3" href="../englishlesson.html" role="button">Kembali</a>
         </div> -->
     <style>
-        #canvas_container {
-            width: 800px;
-            height: 450px;
-            overflow: auto;
-            background: #333;
-            text-align: center;
-            border: solid 3px;
+        .swiper {
+            width: 100%;
         }
+
+        /* .swiper-slide {} */
+
+        .swiper-slide img {
+            width: 100%;
+        }
+
+
+        /* 
+        .container-video {
+            position: relative;
+        }
+
+        .container-video iframe {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+        } */
     </style>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.0.943/pdf.min.js">
-    </script>
     </head>
 
     <body>
-        <!-- <div id="my_pdf_viewer">
-            <div id="canvas_container">
-                <canvas id="pdf_renderer"></canvas>
+        <div class="container">
+            <div class="swiper  mySwiper">
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper">
+                    <!-- Slides -->
+                    <div class="swiper-slide"><img
+                            src="https://drive.google.com/uc?id=1NN0lt-sc-CMu92Ldb82rhALsIVyQ74dB">
+                    </div>
+                    <div class="swiper-slide"><img
+                            src="https://drive.google.com/uc?id=1by4SS8syJw-rZkqG0I35u2MDWIG3qLp0">
+                    </div>
+                    <div class="swiper-slide"><img
+                            src="https://drive.google.com/uc?id=1YVASasX4UZIG9Wty2PF8LHLLEa6QM4Ay">
+                    </div>
+                    <div class="swiper-slide"><img
+                            src="https://drive.google.com/uc?id=1xwOASm042Qy0pftVlriQSOx_76ftDSDT">
+                    </div>
+                    <div class="swiper-slide"><img
+                            src="https://drive.google.com/uc?id=1Re8JTtZNB3lh9mpS-3rNjXdjM4eUsPFs">
+                    </div>
+                    <div class="swiper-slide"><img
+                            src="https://drive.google.com/uc?id=1hKf_VwiihUlL86Ih_Y89Qd09JiaMeLSB">
+                    </div>
+                    <div class="swiper-slide ">
+                        <iframe class=""
+                            src="https://drive.google.com/file/d/1cG8jThUakoWIG-WxvBmT2gmVoZsCnB-l/preview"></iframe>
+                    </div>
+
+                    <div class="swiper-slide ">
+                        <iframe class=""
+                            src="https://drive.google.com/file/d/1jwqLWJ0VfvTLr3MiYOYnoFWUWRK9IHJP/preview"></iframe>
+                    </div>
+
+                    <img class="swiper-slide " src="https://drive.google.com/uc?id=1cKU3U55XRNKVVepdPiBEa6THU5NfvMfK"
+                        alt="">
+
+                    <img class="swiper-slide " src="https://drive.google.com/uc?id=1uQY-5px7hsr1pvn1aRPf3g_LutkStuSO"
+                        alt="">
+
+                    <div class="swiper-slide ">
+                        <iframe class="" src="https://drive.google.com/file/d/1TD7y-JnZE-_xqe7a3yoP0cbIFwdHMLnS/preview"
+                            height="auto"></iframe>
+                    </div>
+
+                    <div class="swiper-slide ">
+                        <iframe class="" src="https://drive.google.com/file/d/1NzqNnuQdgMHlkZqUyiO5wt8lg_YtQ7DN/preview"
+                            height="auto"></iframe>
+                    </div>
+
+                    <img class="swiper-slide " src="https://drive.google.com/uc?id=1fwpbLTy_p3aZx5z4z8aekx8tLVVpTJDt"
+                        alt="">
+                    <img class="swiper-slide " src="https://drive.google.com/uc?id=1gSd0sdQ0eEcGyOBcvRKuSiUuSN8wI6js"
+                        alt="">
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                </div>
+                <!-- If we need pagination -->
+                <div class="swiper-pagination"></div>
             </div>
 
-            <div id="navigation_controls">
-                <button id="go_previous">Previous</button>
-                <input id="current_page" value="1" type="number" />
-                <button id="go_next">Next</button>
-            </div>
+        </div>
 
-            <div id="zoom_controls">
-                <button id="zoom_in">+</button>
-                <button id="zoom_out">-</button>
-            </div>
-        </div> -->
-
-        <div class="container" style="padding-bottom:56.25%; position:relative; display:block; width: 100%">
-            <iframe src="vesso_pdf/VESSO 1 PHONETIC SYMBOLS.pdf" frameborder="0" allowfullscreen=""
-                style="position:absolute; top:0; left: 0" width="100%" height="100%">
-            </iframe>
+        <div class="container">
+            <a class="btn btn-primary btn-md" href="../englishlesson.html" role="button">Kembali</a>
         </div>
     </body>
-
-    </div>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            effect: "coverflow",
+            grabCursor: true,
+            centeredSlides: true,
+            slidesPerView: "auto",
+            coverflowEffect: {
+                rotate: 50,
+                stretch: 0,
+                depth: 100,
+                modifier: 1,
+                slideShadows: true,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+    </script>
 
 </html>
