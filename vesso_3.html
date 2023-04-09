@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="assets/css/slick.css">
     <link rel="stylesheet" href="assets/css/nice-select.css">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
 </head>
 
 <body>
@@ -128,40 +129,144 @@
         <!-- Header End -->
     </header>
     <main>
+
+        <!--? Hero Start -->
+		<div class="slider-area ">
+			<div class="slider-height2 d-flex align-items-center">
+				<div class="container">
+					<div class="row">
+						<div class="col-xl-12">
+							<div class="hero-cap hero-cap2 text-center">
+								<h2>English Lesson #3</h2>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
     <!-- <div class="container-fuid">
-        <div class="container">
-            <img class="col-12 my-2 " src="https://drive.google.com/uc?id=1Wg2HlDDX-6hPgdOEETYw0OM73S3n9gyW" width="300"
-                alt="">
-            <img class="col-12 mb-2" src="https://drive.google.com/uc?id=1DHZEvXAw9oQBnds1mOcmX8kFPdtA3aQS" width="300"
-                alt="">
-            <img class="col-12 mb-2" src="https://drive.google.com/uc?id=1mmN-BWM8znHjOjaKsLGu7KwEub1HOsGU" width="300"
-                alt="">
-            <img class="col-12 mb-2" src="https://drive.google.com/uc?id=1Pnfe8IxhQio8IEqfOnprS5G86zyYD7x1" width="300"
-                alt="">
-            <img class="col-12 mb-2" src="https://drive.google.com/uc?id=1BGpMaM43WTgknblE_VKsS5y1yUv8Lg8Z" width="300"
-                alt="">
-            <img class="col-12 mb-2" src="https://drive.google.com/uc?id=1J9aTRde6ykC0x75GmyI0MpyVRUJ7vxDI" width="300"
-                alt="">
-            <img class="col-12 mb-2" src="https://drive.google.com/uc?id=1FHbDmsgje_Vyd8GJ8Vv2ZA2hzygY62il" width="300"
-                alt="">
-            <img class="col-12 mb-2" src="https://drive.google.com/uc?id=1Rp1tyKF9q36ta7J_Ndmnc4hAkzHlSzp-" width="300"
-                alt="">
-            <img class="col-12 mb-2" src="https://drive.google.com/uc?id=1V_HHtUGdeixwgbreVOamvhvL7yUiDOpH" width="300"
-                alt="">
-            <img class="col-12 mb-2" src="https://drive.google.com/uc?id=1KQ14jl5Pwg9QNqmh91lTQBcGHRRvpU-4" width="300"
-                alt="">
-            <img class="col-12 mb-2" src="https://drive.google.com/uc?id=16KCuiNLF8MmEtmtBGPsgnMJ6SG8KeJFy" width="300"
-                alt="">
+        <div class="container text-center">
+            <img class="col-md-8 my-2 " src="https://drive.google.com/uc?id=1ZjEA3Sa9C8oR7t0pQcOWtQmfQ6Kg7UKB"
+                width="300" alt="">
+            <img class="col-md-8 mb-2" src="https://drive.google.com/uc?id=1ZzEc_TgqAIwEV0LHlnxbzI_SDr5hLbG6"
+                width="300" alt="">
+            <img class="col-md-8 mb-2" src="https://drive.google.com/uc?id=1_11Q6VFBjpQMLRDmSTNWvl3VCx3CkULh"
+                width="300" alt="">
+            <img class="col-md-8 mb-2" src="https://drive.google.com/uc?id=1_Ay_HsWfDXrCHJhuPgsuoUmryEToELHB"
+                width="300" alt="">
+            <img class="col-md-8 mb-2" src="https://drive.google.com/uc?id=1_BexYmFd6dKJlJTWoq5E49vrx6_C_9g_"
+                width="300" alt="">
+            <img class="col-md-8 mb-2" src="https://drive.google.com/uc?id=1_BxK3uuf7TpmaTsAWzQiYW369Vpb89In"
+                width="300" alt="">
         </div>
         <div class="container">
             <a class="btn btn-primary btn-md mb-3" href="../englishlesson.html" role="button">Kembali</a>
         </div> -->
-    <div class="container" style="padding-bottom:56.25%; position:relative; display:block; width: 100%">
-        <iframe src="vesso_pdf/vesso3.pdf" frameborder="0" allowfullscreen="" style="position:absolute; top:0; left: 0"
-            width="100%" height="100%">
-        </iframe>
+    </head>
+    <style>
+        #canvas_container {
+            width: 800px;
+            height: 450px;
+            overflow: auto;
+            background: #333;
+            text-align: center;
+            border: solid 3px;
+        }
+        .swiper {
+            width: 100%;
+            padding-top: 110px;
+        }
+
+        .swiper-slide {
+            background-position: center;
+            background-size: cover;
+        }
+
+        .swiper-slide img {
+            width: 100%;
+
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.0.943/pdf.min.js">
+    </script>
+    <body>
+    <div class="container">
+        <div class="swiper  mySwiper">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+                <!-- Slides -->
+                <div class="swiper-slide">
+                    <img class="col-12 my-2 " src="https://drive.google.com/uc?id=1E7xoz0nPdcMs1XFQkdV0BIAIEC0OTQZC"
+                        width="300" alt="">
+                </div>
+                <div class="swiper-slide"><img class="col-12 mb-2"
+                        src="https://drive.google.com/uc?id=1SLOy88v-Y_FT2NFrZVvBjc7loIY5DVlb" width="300" alt="">
+                </div>
+                <div class="swiper-slide"><img class="col-12 mb-2"
+                        src="https://drive.google.com/uc?id=1KI8E-uEbLNa5M2VT4vBbP_gzPjvPSvQH" width="300" alt="">
+                </div>
+                <div class="swiper-slide"> <img class="col-12 mb-2"
+                        src="https://drive.google.com/uc?id=1TxbdfVg_rcGVYE0ZsPMp0VdSoUemVRSa" width="300" alt="">
+                </div>
+                <div class="swiper-slide"><img class="col-12 mb-2"
+                        src="https://drive.google.com/uc?id=1FwSNABuI-9xHdRrM2BcF8yZvaQQ3tMzc" width="300" alt="">
+                </div>
+                <div class="swiper-slide"><img class="col-12 mb-2"
+                        src="https://drive.google.com/uc?id=11788H1unRv-GY28Ie7rmnlZ_IQpwaI-C" width="300" alt="">
+                </div>
+                <div class="swiper-slide"><img class="col-12 mb-2"
+                        src="https://drive.google.com/uc?id=1MQpAJtKX6B9GUQLJD8VAKunuGjtl_wPH" width="300" alt="">
+                </div>
+               
+            </div>
+            <!-- If we need pagination -->
+            <div class="swiper-pagination"></div>
+        </div>
     </div>
+    <div class="container my-5">
+        <a class="btn btn-primary btn-md mb-3" href="../englishlesson.html" role="button">Kembali</a>
     </div>
+</body>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            effect: "coverflow",
+            grabCursor: true,
+            centeredSlides: true,
+            slidesPerView: "auto",
+            coverflowEffect: {
+                rotate: 50,
+                stretch: 0,
+                depth: 100,
+                modifier: 1,
+                slideShadows: true,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+            },
+        });
+    </script>
+    </div>
+    
+        <!-- <div id="my_pdf_viewer">
+            <div id="canvas_container">
+                <canvas id="pdf_renderer"></canvas>
+            </div>
+
+            <div id="navigation_controls">
+                <outton id="go_previous">Previous</outton>
+                <input id="current_page" value="1" type="number" />
+                <button id="go_next">Next</button>
+            </div>
+
+            <div id="zoom_controls">
+                <button id="zoom_in">+</button>
+                <button id="zoom_out">-</button>
+            </div>
+        </div> -->
+
+     
+<!-- Blog Area End -->
 </main>
 <footer>
     <!--? Footer Start-->

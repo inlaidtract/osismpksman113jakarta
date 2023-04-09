@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title> s- OSIS/MPK SMAN113 </title>
+    <title> Vesso_0  - OSIS/MPK SMAN113 </title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="manifest" href="site.webmanifest">
@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="assets/css/slick.css">
     <link rel="stylesheet" href="assets/css/nice-select.css">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
 </head>
 
 <body>
@@ -128,6 +129,21 @@
         <!-- Header End -->
     </header>
     <main>
+
+        <!--? Hero Start -->
+		<div class="slider-area ">
+			<div class="slider-height2 d-flex align-items-center">
+				<div class="container">
+					<div class="row">
+						<div class="col-xl-12">
+							<div class="hero-cap hero-cap2 text-center">
+								<h2>English Lesson #0</h2>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
     <!-- <div class="container-fuid">
         <div class="container text-center">
             <img class="col-md-8 my-2 " src="https://drive.google.com/uc?id=1ZjEA3Sa9C8oR7t0pQcOWtQmfQ6Kg7UKB"
@@ -146,6 +162,7 @@
         <div class="container">
             <a class="btn btn-primary btn-md mb-3" href="../englishlesson.html" role="button">Kembali</a>
         </div> -->
+    </head>
     <style>
         #canvas_container {
             width: 800px;
@@ -155,19 +172,84 @@
             text-align: center;
             border: solid 3px;
         }
+        .swiper {
+            width: 100%;
+            padding-top: 110px;
+        }
+
+        .swiper-slide {
+            background-position: center;
+            background-size: cover;
+        }
+
+        .swiper-slide img {
+            width: 100%;
+
+        }
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.0.943/pdf.min.js">
     </script>
-    </head>
-
     <body>
+    <div class="container">
+        <div class="swiper  mySwiper">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+                <!-- Slides -->
+                <div class="swiper-slide"><img
+                        src="https://drive.google.com/uc?id=1ZjEA3Sa9C8oR7t0pQcOWtQmfQ6Kg7UKB">
+                </div>
+                <div class="swiper-slide"><img
+                        src="https://drive.google.com/uc?id=1ZzEc_TgqAIwEV0LHlnxbzI_SDr5hLbG6">
+                </div>
+                <div class="swiper-slide"><img
+                        src="https://drive.google.com/uc?id=1_11Q6VFBjpQMLRDmSTNWvl3VCx3CkULh">
+                </div>
+                <div class="swiper-slide"><img
+                        src="https://drive.google.com/uc?id=1_Ay_HsWfDXrCHJhuPgsuoUmryEToELHB">
+                </div>
+                <div class="swiper-slide"><img
+                        src="https://drive.google.com/uc?id=1_BexYmFd6dKJlJTWoq5E49vrx6_C_9g_">
+                </div>
+                <div class="swiper-slide"><img
+                        src="https://drive.google.com/uc?id=1_BxK3uuf7TpmaTsAWzQiYW369Vpb89In">
+                </div>
+            </div>
+            <!-- If we need pagination -->
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+    <div class="container my-5">
+        <a class="btn btn-primary btn-md mb-3" href="../englishlesson.html" role="button">Kembali</a>
+    </div>
+</body>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            effect: "coverflow",
+            grabCursor: true,
+            centeredSlides: true,
+            slidesPerView: "auto",
+            coverflowEffect: {
+                rotate: 50,
+                stretch: 0,
+                depth: 100,
+                modifier: 1,
+                slideShadows: true,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+            },
+        });
+    </script>
+    </div>
+    
         <!-- <div id="my_pdf_viewer">
             <div id="canvas_container">
                 <canvas id="pdf_renderer"></canvas>
             </div>
 
             <div id="navigation_controls">
-                <button id="go_previous">Previous</button>
+                <outton id="go_previous">Previous</outton>
                 <input id="current_page" value="1" type="number" />
                 <button id="go_next">Next</button>
             </div>
@@ -178,14 +260,8 @@
             </div>
         </div> -->
 
-        <div class="container" style="padding-bottom:56.25%; position:relative; display:block; width: 100%">
-            <iframe src="vesso_pdf/vesso 0.pdf" frameborder="0" allowfullscreen=""
-                style="position:absolute; top:0; left: 0" width="100%" height="100%">
-            </iframe>
-        </div>
-    </div>
-
- <!-- Blog Area End -->
+     
+<!-- Blog Area End -->
 </main>
 <footer>
     <!--? Footer Start-->
